@@ -1,0 +1,189 @@
+/* Subtle Neutral Palette with Delicate Pink Hints */
+:root {
+    /* Very subtle pink gradients for header and footer */
+    --color-header-start: #fff0f5; /* LavenderBlush */
+    --color-header-end:   #ffe6f0;
+    --color-footer-start: #fff0f5;
+    --color-footer-end:   #ffe6f0;
+    
+    /* Neutral Base Colors */
+    --color-background: #ffffff;
+    --color-text: #333333;
+    --nav-background: #fff0f5;  /* Very subtle pink for navigation */
+    
+    /* Accent for hover effects */
+    --color-accent: #d291bc;
+    
+    --shadow-light: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Global Styles */
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: 'Dekko', serif;
+    text-align: center;
+    line-height: 1.6;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Header */
+  header {
+    background: linear-gradient(135deg, var(--color-header-start), var(--color-header-end));
+    color: var(--color-text);
+    padding: 30px;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: "Alex Brush", serif;
+    box-shadow: 0px 4px 6px var(--shadow-light);
+    border-radius: 0 0 12px 12px;
+    animation: slideDown 1s ease-in-out;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  header a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  header a:hover {
+    color: var(--color-accent);
+  }
+  
+  header p {
+    font-family: "Dekko", serif;
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 8px;
+  }
+  
+  /* Main Content */
+  main {
+    padding: 20px;
+  }
+  
+  /* Heading Section with Original Background Image */
+  .heading {
+    background: url('backdrop.jpg') no-repeat center center/cover;
+    padding: 80px 25px;
+    border-radius: 20px;
+    margin: 30px auto 20px;
+    max-width: 85%;
+    box-shadow: 0px 5px 15px var(--shadow-light);
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  .heading h1 {
+    margin: 10px 0;
+    color: var(--color-text);
+  }
+  
+  .heading p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: var(--color-text);
+  }
+  
+  .heading img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 20px;
+    box-shadow: 0px 6px 12px var(--shadow-light);
+    transition: transform 0.3s ease-in-out;
+    margin: 20px 0;
+  }
+  
+  .heading img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Navigation */
+  nav {
+    display: flex;
+    justify-content: center;
+    background: var(--nav-background);
+    padding: 15px 0;
+    box-shadow: 0px 4px 6px var(--shadow-light);
+    border-radius: 12px;
+    margin: 20px auto 30px;
+    max-width: 90%;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 35px;
+    align-items: center;
+  }
+  
+  nav ul li {
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: var(--color-text);
+  }
+  
+  nav ul li a:hover {
+    color: var(--color-accent);
+    transform: scale(1.2);
+  }
+  
+  /* Footer */
+  footer {
+    margin-top: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, var(--color-footer-start), var(--color-footer-end));
+    color: var(--color-text);
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0px -4px 6px var(--shadow-light);
+    animation: fadeIn 2.5s ease-in-out;
+    border-radius: 12px;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+  @keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .heading {
+      padding: 50px 15px;
+    }
+    
+    nav ul {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    nav ul li {
+      font-size: 18px;
+    }
+  }
+  
+ 

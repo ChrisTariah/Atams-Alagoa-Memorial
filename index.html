@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tributes - Atams Alagoa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Dekko&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      /* Very subtle pink gradients and backgrounds */
+      --color-header-start: #fff0f5; /* LavenderBlush */
+      --color-header-end:   #ffe6f0;
+      --color-footer-start: #fff0f5;
+      --color-footer-end:   #ffe6f0;
+      --nav-background:     #fff0f5; /* Subtle pink for nav background */
+      
+      /* Base Colors */
+      --color-background: #ffffff;
+      --color-text: #333333;
+      
+      /* Accent color for hover effects */
+      --color-accent: #d291bc;
+      
+      --shadow-light: rgba(0, 0, 0, 0.1);
+    }
+    
+    
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      box-shadow: 0px 5px 15px var(--shadow-light);
+      border-radius: 10px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    
+    .container img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0px 6px 12px var(--shadow-light);
+      transition: transform 0.3s ease-in-out;
+      margin: 20px 0;
+    }
+    
+    .container img:hover {
+      transform: scale(1.05);
+    }
+    
+    .message-wall {
+      margin-top: 20px;
+      text-align: left;
+      padding: 15px;
+      background: var(--color-accent);
+      border-radius: 10px;
+    }
+    
+    .message {
+      background: white;
+      padding: 12px;
+      border: 1px solid var(--color-footer-end);
+      border-radius: 5px;
+      margin-bottom: 10px;
+      box-shadow: 0px 4px 8px var(--shadow-light);
+    }
+    
+    .input-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid var(--color-footer-end);
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    
+    button {
+      padding: 10px 15px;
+      border: none;
+      background: var(--color-footer-end);
+      color: var(--color-text);
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+    }
+    
+    button:hover {
+      background: var(--color-accent);
+      color: white;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        width: 90%;
+        padding: 15px;
+      }
+      .input-container {
+        flex-direction: column;
+      }
+      input {
+        width: 100%;
+      }
+      button {
+        width: 100%;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="home.html">Atams Alagoa JP</a></h1>
+    <p>Wife ~ Sister ~ Daughter ~ Mother ~ Grandmother</p>
+  </header>
+  <nav>
+    <ul>
+        <li><a href="biography.html">Biography</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="photos.html">Photos</a></li>
+        <li><a href="index.html">Tributes</a></li>
+      </ul>
+  </nav>
+  <div class="container">
+    <h1>In Loving Memory</h1>
+    <p>A tribute to a life well lived.</p>
+    <img src="IMG_9686.jpg" alt="Memorial Image" class="tribute-img">
+    <h2>Mrs. Atamunotorudikiari Ibama Alagoa</h2>
+    <p>1952-2024</p>
+    <p>May you rest in peace</p>
+    
+    <div class="message-wall">
+      <h3>Memories &amp; Messages</h3>
+      <div id="messages">
+        <!-- Messages will load here -->
+      </div>
+      <div class="input-container">
+        <input type="text" id="messageInput" placeholder="Leave a message...">
+        <button onclick="addMessage()">Submit</button>
+      </div>
+    </div>
+  </div>
+  <footer>
+    Made by Christie Barango-Tariah,
+  </footer>
+  
+  <script>
+    // Load messages from localStorage and display them
+    function loadMessages() {
+      let messages = JSON.parse(localStorage.getItem("messages"));
+      if (!messages) {
+        messages = [
+          "You will always be remembered.",
+          "Rest in peace, our beloved Grandma, Mother, Wife, Sister, Daughter and Friend."
+        ];
+        localStorage.setItem("messages", JSON.stringify(messages));
+      }
+      const messagesDiv = document.getElementById("messages");
+      messagesDiv.innerHTML = "";
+      messages.forEach(msg => {
+        const newMessage = document.createElement("div");
+        newMessage.classList.add("message");
+        newMessage.textContent = msg;
+        messagesDiv.appendChild(newMessage);
+      });
+    }
+    
+    // Add a new message and update localStorage
+    function addMessage() {
+      const input = document.getElementById("messageInput");
+      const messageText = input.value.trim();
+      if (messageText !== "") {
+        let messages = JSON.parse(localStorage.getItem("messages")) || [];
+        messages.push(messageText);
+        localStorage.setItem("messages", JSON.stringify(messages));
+        loadMessages();
+        input.value = "";
+      }
+    }
+    
+    document.addEventListener("DOMContentLoaded", loadMessages);
+  </script>
+</body>
+</html>
